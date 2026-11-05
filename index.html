@@ -387,6 +387,25 @@ footer .wrap{padding-block:28px 40px;display:flex;justify-content:space-between;
 .r3cta{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:22px}
 @media (min-width:640px){.r3{--w:190px;--h:260px}}
 @media (min-width:1000px){.r3{--w:220px;--h:300px}}
+/* RING NEO */
+.r3.neo{--w:170px;--h:104px;height:450px;perspective:1500px}
+.r3.neo::before{top:41%;width:calc(var(--h)*2.5);opacity:.9;filter:none}
+.r3.neo .st{top:52%;transform:rotateZ(-11deg) rotateX(-19deg)}
+.r3.neo .c{border-radius:5px;border:0;box-shadow:none;padding:12px 14px;background:linear-gradient(160deg,#17171b,#08080a)}
+.r3.neo .c:nth-child(n){background:linear-gradient(160deg,#17171b,#08080a)}
+.r3.neo .c .t{font-size:clamp(13px,1.5vw,19px)}
+.r3.neo .c .s{font-size:11px;margin-top:3px}
+.r3.neo .c .bg{opacity:.7}
+.r3 .nr{position:absolute;left:0;top:0;border-radius:50%;pointer-events:none}
+.r3 .nb{border:2.5px solid #FF9A3D;box-shadow:0 0 16px 2px rgba(255,122,26,.9),inset 0 0 16px 2px rgba(255,122,26,.65);transform:translate(-50%,-50%) translateY(var(--y)) rotateX(90deg)}
+.r3 .ns{background:conic-gradient(from 0deg,transparent 0 60%,rgba(255,154,61,.5) 85%,#FFE2BC 97%,#fff 100%);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 7px),#000 calc(100% - 6px));mask:radial-gradient(farthest-side,transparent calc(100% - 7px),#000 calc(100% - 6px));filter:drop-shadow(0 0 6px #FF9A3D) drop-shadow(0 0 14px #FF7A1A);transform:translate(-50%,-50%) translateY(var(--y)) rotateX(90deg);animation:neoS 4.2s linear infinite}
+.r3 .ns.r{animation-duration:6.4s;animation-direction:reverse}
+@keyframes neoS{from{transform:translate(-50%,-50%) translateY(var(--y)) rotateX(90deg) rotate(0deg)}to{transform:translate(-50%,-50%) translateY(var(--y)) rotateX(90deg) rotate(360deg)}}
+.r3 .ctr{position:absolute;left:calc(var(--h)*-.78);top:calc(var(--h)*-1.75);width:calc(var(--h)*1.56);height:calc(var(--h)*2.6);transform:rotateX(19deg) rotateZ(11deg);-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent);mask-image:linear-gradient(180deg,#000 62%,transparent);pointer-events:none}
+.r3 .ctr img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;border-radius:999px 999px 0 0}
+@media (min-width:640px){.r3.neo{--w:280px;--h:170px;height:580px}}
+@media (min-width:1000px){.r3.neo{--w:360px;--h:210px;height:680px}}
+@media (prefers-reduced-motion:reduce){.r3 .ns{animation:none}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -909,19 +928,25 @@ function mok(x){return !!(x&&(x.id||x.link))}
     if(it.s)a.appendChild(el('div','s',it.s));
     return a;
   }
-  function ring(box,items){
+  function ring(box,items,opt){opt=opt||{};
     if(!box||!items.length)return;
     var st=el('div','st'),orb=el('div','orb'),cs=items.map(card),n=cs.length;
-    st.appendChild(orb);cs.forEach(function(c){st.appendChild(c)});box.appendChild(st);
+    var nrs=[];
+    if(opt.neo){box.classList.add('neo');
+      if(opt.center){var ct=el('div','ctr'),ci=new Image();ci.alt='';ci.decoding='async';ci.referrerPolicy='no-referrer';ci.onerror=function(){ct.remove()};ci.src=opt.center;ct.appendChild(ci);st.appendChild(ct)}
+      [-1,1].forEach(function(sg){var b=el('div','nr nb'),m=el('div','nr ns'+(sg>0?' r':''));b._sg=m._sg=sg;nrs.push(b,m);st.appendChild(b);st.appendChild(m)});
+    }else st.appendChild(orb);
+    cs.forEach(function(c){st.appendChild(c)});box.appendChild(st);
     var R=300,rot=0,v=0,drag=false,moved=0,lx=0,hover=false,vis=false,last=0,
         rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
-    function size(){var w=parseFloat(getComputedStyle(box).getPropertyValue('--w'))||160;
-      R=Math.max(w*1.3,(w/2)/Math.tan(Math.PI/n)*1.12);var d=R*2;orb.style.width=d+'px';orb.style.height=d+'px'}
+    function size(){var cs0=getComputedStyle(box),w=parseFloat(cs0.getPropertyValue('--w'))||160,h=parseFloat(cs0.getPropertyValue('--h'))||200;
+      if(opt.neo){R=(w/2)/Math.tan(Math.PI/n);var Rc=R/Math.cos(Math.PI/n),d=Rc*2;nrs.forEach(function(r){r.style.width=r.style.height=d+'px';r.style.setProperty('--y',(r._sg*h/2)+'px')})}
+      else{R=Math.max(w*1.3,(w/2)/Math.tan(Math.PI/n)*1.12);var d2=R*2;orb.style.width=d2+'px';orb.style.height=d2+'px'}}
     function draw(){
       for(var i=0;i<n;i++){
         var a=(rot+i*360/n)*Math.PI/180,x=Math.sin(a)*R,z=Math.cos(a)*R,f=(Math.cos(a)+1)/2;
-        var c=cs[i];c.style.transform='translate3d('+x.toFixed(1)+'px,0,'+z.toFixed(1)+'px) rotateY('+(Math.sin(a)*-24).toFixed(1)+'deg)';
-        c.style.opacity=(.22+.78*f).toFixed(2);c.style.pointerEvents=f>.55?'auto':'none';c.tabIndex=f>.55?0:-1;
+        var c=cs[i];c.style.transform=opt.neo?'rotateY('+(rot+i*360/n).toFixed(2)+'deg) translateZ('+R.toFixed(1)+'px)':'translate3d('+x.toFixed(1)+'px,0,'+z.toFixed(1)+'px) rotateY('+(Math.sin(a)*-24).toFixed(1)+'deg)';
+        c.style.opacity=(opt.neo?(.3+.7*Math.pow(f,.7)):(.22+.78*f)).toFixed(2);c.style.pointerEvents=f>.55?'auto':'none';c.tabIndex=f>.55?0:-1;
       }
     }
     function tick(t){
@@ -945,13 +970,13 @@ function mok(x){return !!(x&&(x.id||x.link))}
   var S=(M.slides&&M.slides.length?M.slides:(M.hero||[])).filter(mok),
       pic=function(i){return S.length?msrc(S[i%S.length]):null};
   ring(document.getElementById('ring-dv'),[
-    {k:'01',t:'Quay chụp ngày cưới',s:'Phóng sự, highlight, flycam',img:pic(0),ic:'i-ring',href:'#dich-vu-ds'},
+    {k:'01',t:'Quay chụp ngày cưới',s:'Phóng sự, highlight, flycam',img:pic(1),ic:'i-ring',href:'#dich-vu-ds'},
     {k:'02',t:'Sự kiện',s:'Hội nghị, khai trương, gala',ic:'i-vid',href:'#dich-vu-ds'},
     {k:'03',t:'Sinh nhật',s:'Thôi nôi, tiệc sinh nhật',ic:'i-cake',href:'#dich-vu-ds'},
     {k:'04',t:'Event doanh nghiệp',s:'Year-end party, ra mắt sản phẩm',ic:'i-biz',href:'#dich-vu-ds'},
     {k:'05',t:'Livestream',s:'Đa máy quay, đồ hoạ trực tiếp',ic:'i-live',href:'#dich-vu-ds'},
     {k:'06',t:'Màn hình LED',s:'Trong nhà và ngoài trời',ic:'i-led',href:'#dich-vu-ds'},
-    {k:'07',t:'Photobooth',s:'In ảnh lấy ngay',ic:'i-print',href:'#dich-vu-ds'}]);
+    {k:'07',t:'Photobooth',s:'In ảnh lấy ngay',ic:'i-print',href:'#dich-vu-ds'}],{neo:true,center:pic(0)});
   var W=[],AL=(M.albums||[]).filter(function(a){return a&&a.cover&&mok(a.cover)}),V=(M.video||[]).filter(function(x){return x&&yid(x.link)});
   for(var i=0;i<Math.max(AL.length,V.length);i++){
     if(AL[i])W.push({k:'Album',t:AL[i].ten,s:(AL[i].anh||[]).length+' ảnh',img:msrc(AL[i].cover),href:'#gal'});
