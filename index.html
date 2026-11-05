@@ -361,6 +361,18 @@ footer .wrap{padding-block:28px 40px;display:flex;justify-content:space-between;
   section .wrap{padding-block:64px}
 }
 @media (prefers-reduced-motion:reduce){.dot{animation:none}.card{transition:none}html{scroll-behavior:auto}}
+/* DU AN */
+.prj{margin:56px auto 0;max-width:1100px}
+.prj h3{font-size:clamp(24px,3.4vw,38px);font-weight:800;line-height:1.1;text-align:center;margin:10px 0 0}
+.prj .sub{text-align:center;color:var(--grey);margin:10px auto 0;max-width:52ch}
+.prj .gr{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px;margin-top:30px}
+.prj .g{border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px;background:linear-gradient(170deg,rgba(255,255,255,.04),rgba(255,255,255,.01));min-width:0}
+.prj .g h4{margin:0 0 12px;font:700 12px/1.2 var(--f);letter-spacing:.16em;text-transform:uppercase;color:var(--red2);display:flex;justify-content:space-between;gap:10px}
+.prj .g h4 b{color:#fff;font-weight:700;letter-spacing:0}
+.prj ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.prj li{display:flex;gap:10px;align-items:baseline;font-size:15px;line-height:1.35;color:#ece7de}
+.prj li::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--red);transform:translateY(-1px)}
+.prj li small{color:var(--grey);font-size:12.5px;white-space:nowrap;margin-left:auto;padding-left:8px}
 /* RING 3D */
 .r3sec{padding-bottom:28px;background:radial-gradient(60% 50% at 50% 38%,rgba(255,122,26,.14),transparent 70%),var(--ink)}
 .r3hd{text-align:center;max-width:720px;margin:0 auto}
@@ -388,11 +400,16 @@ footer .wrap{padding-block:28px 40px;display:flex;justify-content:space-between;
 @media (min-width:640px){.r3{--w:190px;--h:260px}}
 @media (min-width:1000px){.r3{--w:220px;--h:300px}}
 /* RING NEO */
-.r3.neo{--w:170px;--h:104px;height:450px;perspective:1500px}
-.r3.neo::before{top:41%;width:calc(var(--h)*2.5);opacity:.9;filter:none}
+.r3.neo{--w:150px;--h:96px;height:430px;perspective:1500px}
+.r3.neo::before{top:50%;width:calc(var(--h)*2.6);opacity:.18;filter:blur(26px)}
 .r3.neo .st{top:52%;transform:rotateZ(-11deg) rotateX(-19deg)}
-.r3.neo .c{border-radius:5px;border:0;box-shadow:none;padding:12px 14px;background:linear-gradient(160deg,#17171b,#08080a)}
-.r3.neo .c:nth-child(n){background:linear-gradient(160deg,#17171b,#08080a)}
+.r3.neo .c{border-radius:0;border:0;box-shadow:none;padding:0;background:linear-gradient(160deg,#17171b,#08080a)}
+.r3.neo .c .ci{position:relative;height:100%;box-sizing:border-box;padding:12px 14px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.r3.neo .c::after{display:none}
+.r3.neo .c .ci::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,7,10,0) 22%,rgba(7,7,10,.92) 100%);pointer-events:none}
+.r3.neo .c .ci>*{position:relative;z-index:1}
+.r3.neo .c .ci>img{position:absolute;z-index:0}
+.r3.neo .c .ci>.bg{position:absolute;z-index:0}
 .r3.neo .c .t{font-size:clamp(13px,1.5vw,19px)}
 .r3.neo .c .s{font-size:11px;margin-top:3px}
 .r3.neo .c .bg{opacity:.7}
@@ -406,6 +423,27 @@ footer .wrap{padding-block:28px 40px;display:flex;justify-content:space-between;
 @media (min-width:640px){.r3.neo{--w:280px;--h:170px;height:580px}}
 @media (min-width:1000px){.r3.neo{--w:360px;--h:210px;height:680px}}
 @media (prefers-reduced-motion:reduce){.r3 .ns{animation:none}}
+/* RING DRUM */
+.r3.drum{--w:150px;--h:236px;height:calc(var(--h)*1.5 + 80px);perspective:1500px}
+.r3.drum::before{top:50%;width:calc(var(--h)*2.2);opacity:.16;filter:blur(30px)}
+.r3.drum .st{top:50%;transform:rotateX(-15deg)}
+.r3.drum .c{backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:6px;border:1px solid rgba(255,154,61,.4);box-shadow:0 0 20px rgba(255,122,26,.28);padding:16px 14px 52px;justify-content:flex-start;background:linear-gradient(170deg,#18181c,#09090b)}
+.r3.drum .c:nth-child(n){background:linear-gradient(170deg,#18181c,#09090b)}
+.r3.drum .c::after{display:none}
+.r3.drum .c::before{content:"Xem chi tiết →";position:absolute;z-index:2;left:14px;right:14px;bottom:14px;padding:9px 6px;border-radius:3px;background:#FF7A1A;color:#120A04;font:700 12px/1.2 var(--f);text-align:center}
+.r3.drum .c .k{font-size:10.5px;margin-bottom:10px}
+.r3.drum .c .t{font-size:clamp(20px,2.3vw,28px);font-weight:800;line-height:1.08;text-transform:uppercase;letter-spacing:-.01em}
+.r3.drum .c .s{font-size:12px;margin-top:10px;color:#d6d0c6;max-width:22ch}
+.r3.drum .c>img{top:auto;bottom:0;height:46%;z-index:0;-webkit-mask-image:linear-gradient(180deg,transparent,#000 35%);mask-image:linear-gradient(180deg,transparent,#000 35%)}
+.r3.drum .c>.bg{top:auto;right:-8px;bottom:36px;width:70%;color:rgba(255,154,61,.22)}
+.r3 .cap{position:absolute;left:0;top:0;border-radius:50%;pointer-events:none;background:radial-gradient(circle,#202026 0,#0b0b0e 66%);border:3px solid #FF9A3D;box-shadow:0 0 22px 2px rgba(255,122,26,.9),inset 0 0 26px 2px rgba(255,122,26,.65);transform:translate(-50%,-50%) translateY(var(--y)) rotateX(90deg)}
+.r3 .vb{position:absolute;top:0;bottom:0;width:3px;overflow:hidden;background:linear-gradient(180deg,transparent,#FF9A3D 22%,#FF7A1A 78%,transparent);box-shadow:0 0 14px 2px rgba(255,122,26,.75);pointer-events:none}
+.r3 .vb::after{content:"";position:absolute;left:0;right:0;height:70px;background:linear-gradient(180deg,rgba(255,255,255,0),#fff,rgba(255,255,255,0));animation:vbk 3s linear infinite}
+.r3 .vb.l{left:7%}.r3 .vb.r{right:7%}.r3 .vb.r::after{animation-delay:-1.5s}
+@keyframes vbk{from{top:-70px}to{top:100%}}
+@media (min-width:640px){.r3.drum{--w:190px;--h:300px;height:calc(var(--h)*1.5 + 90px)}}
+@media (min-width:1000px){.r3.drum{--w:210px;--h:340px;height:calc(var(--h)*1.5 + 100px)}}
+@media (prefers-reduced-motion:reduce){.r3 .vb::after{animation:none}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -423,6 +461,7 @@ footer .wrap{padding-block:28px 40px;display:flex;justify-content:space-between;
   <a class="logo" href="#"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="8" fill="#FF7A1A"/><circle cx="15" cy="15" r="7" fill="none" stroke="#fff" stroke-width="2.4"/><circle cx="15" cy="15" r="2.4" fill="#fff"/></svg>Phúc Nguyễn Media</a>
   <ul class="menu">
     <li><a href="#dich-vu">Dịch vụ</a></li>
+    <li><a href="#du-an">Dự án</a></li>
     <li><a href="#tac-pham">Tác phẩm</a></li>
     <li><a href="#quy-trinh">Quy trình</a></li>
     <li><a href="#lien-he">Liên hệ</a></li>
@@ -572,10 +611,24 @@ footer .wrap{padding-block:28px 40px;display:flex;justify-content:space-between;
 </ul></div>
 
 <section class="dark pad r3sec" id="dich-vu"><div class="wrap">
-  <div class="r3hd"><span class="eyebrow">Chương trình</span><h2>Bạn tổ chức, <em>chúng tôi ghi hình</em></h2><p>Các chương trình chúng tôi đang thực hiện. Chạm vào từng thẻ để xem chi tiết.</p></div>
+  <div class="r3hd"><span class="eyebrow">Chương trình</span><h2>Bạn tổ chức, <em>chúng tôi ghi hình</em></h2><p>Visual Storyteller tại Biên Hòa. Phục vụ Biên Hòa, Long Khánh, Trảng Bom, Long Thành.</p></div>
   <div class="r3" id="ring-dv" role="region" aria-label="Các dịch vụ"></div>
   <div class="r3hint">Kéo hoặc vuốt để xoay</div>
   <div class="r3cta"><a class="btn" href="#lien-he">Nhận báo giá</a><a class="btn ghost" href="#dich-vu-ds">Xem chi tiết dịch vụ</a></div>
+<div class="prj" id="du-an">
+  <div style="text-align:center"><span class="eyebrow">Dự án đã thực hiện</span></div>
+  <h3>Đồng hành cùng doanh nghiệp và gia đình</h3>
+  <p class="sub">Một số chương trình Phúc Nguyễn Media đã quay, chụp và dựng trong năm 2026.</p>
+  <div class="gr">
+    <div class="g"><h4>Year end party<b>6</b></h4><ul><li>Yeagel<small>08/2026</small></li><li>Techcombank Vùng 10<small>08/2026</small></li><li>Tân Thuận An (tân niên)<small>08/2026</small></li><li>Mai Hương Phát<small>08/2026</small></li><li>Tân Hòa 1<small>07/2026</small></li><li>Cargill, YEP Sắc Màu<small>01/2026</small></li></ul></div>
+    <div class="g"><h4>Khai trương<b>5</b></h4><ul><li>Viet Flower<small>08/2026</small></li><li>Vàng bạc Kim Hùng<small>08/2026</small></li><li>Pickleball 39<small>08/2026</small></li><li>Konexa Group<small>07/2026</small></li><li>Shantea<small>03/2026</small></li></ul></div>
+    <div class="g"><h4>TVC và phim doanh nghiệp<b>5</b></h4><ul><li>La La Coffee<small>07/2026</small></li><li>THACO Auto<small>07/2026</small></li><li>THACO Auto Đồng Nai<small>07/2026</small></li><li>Highlight Konexa Group<small>07/2026</small></li><li>Highlight Wanek<small>05/2026</small></li></ul></div>
+    <div class="g"><h4>Giải đấu và recap<b>7</b></h4><ul><li>Pickleball Techcombank Vùng 10<small>08/2026</small></li><li>Techcombank Management Cup<small>08/2026</small></li><li>Techcombank Private Client Cup<small>08/2026</small></li><li>Hawa Expo 2026<small>07/2026</small></li><li>Ansell Race 2026<small>07/2026</small></li><li>PMU Universe Awards 2026<small>05/2026</small></li><li>Đồng Nai Ford Champion<small>05/2026</small></li></ul></div>
+    <div class="g"><h4>Chương trình cộng đồng<b>2</b></h4><ul><li>Chương trình nghệ thuật UBND xã Đại Phước<small>08/2026</small></li><li>Ca nguyện Mùa Chay, GX Thánh Tâm<small>03/2026</small></li></ul></div>
+    <div class="g"><h4>Cưới và gia đình<b>4+</b></h4><ul><li>Phóng sự cưới điện ảnh</li><li>Pre-wedding film</li><li>Livestream màn LED tiệc cưới 100 bàn<small>03/2026</small></li><li>Photobooth 360 cho YEP và đám cưới<small>01/2026</small></li></ul></div>
+  </div>
+</div>
+
 </div></section>
 
 <section class="light pad" id="dich-vu-ds"><div class="wrap">
@@ -928,11 +981,15 @@ function mok(x){return !!(x&&(x.id||x.link))}
     if(it.s)a.appendChild(el('div','s',it.s));
     return a;
   }
+  function facets(it,K){var out=[];for(var j=0;j<K;j++){var c0=card(it),a=el('a','c'),ci=el('div','ci');a.href=c0.href;a.draggable=false;a._j=j;while(c0.firstChild)ci.appendChild(c0.firstChild);a.appendChild(ci);out.push(a)}return out}
   function ring(box,items,opt){opt=opt||{};
     if(!box||!items.length)return;
-    var st=el('div','st'),orb=el('div','orb'),cs=items.map(card),n=cs.length;
+    var st=el('div','st'),orb=el('div','orb'),K=opt.neo?3:1,cs=opt.neo?[].concat.apply([],items.map(function(it){return facets(it,K)})):items.map(card),n=cs.length;
     var nrs=[];
-    if(opt.neo){box.classList.add('neo');
+    if(opt.drum){box.classList.add('drum');
+      [-1,1].forEach(function(sg){var cp=el('div','nr cap'),m=el('div','nr ns'+(sg>0?' r':''));cp._sg=m._sg=sg;cp._cap=m._cap=1;nrs.push(cp,m);st.appendChild(cp);st.appendChild(m)});
+      box.appendChild(el('div','vb l'));box.appendChild(el('div','vb r'));
+    }else if(opt.neo){box.classList.add('neo');
       if(opt.center){var ct=el('div','ctr'),ci=new Image();ci.alt='';ci.decoding='async';ci.referrerPolicy='no-referrer';ci.onerror=function(){ct.remove()};ci.src=opt.center;ct.appendChild(ci);st.appendChild(ct)}
       [-1,1].forEach(function(sg){var b=el('div','nr nb'),m=el('div','nr ns'+(sg>0?' r':''));b._sg=m._sg=sg;nrs.push(b,m);st.appendChild(b);st.appendChild(m)});
     }else st.appendChild(orb);
@@ -940,13 +997,14 @@ function mok(x){return !!(x&&(x.id||x.link))}
     var R=300,rot=0,v=0,drag=false,moved=0,lx=0,hover=false,vis=false,last=0,
         rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
     function size(){var cs0=getComputedStyle(box),w=parseFloat(cs0.getPropertyValue('--w'))||160,h=parseFloat(cs0.getPropertyValue('--h'))||200;
-      if(opt.neo){R=(w/2)/Math.tan(Math.PI/n);var Rc=R/Math.cos(Math.PI/n),d=Rc*2;nrs.forEach(function(r){r.style.width=r.style.height=d+'px';r.style.setProperty('--y',(r._sg*h/2)+'px')})}
+      if(opt.neo){var fw=w/K;R=(fw/2)/Math.tan(Math.PI/n);var Rc=R/Math.cos(Math.PI/n),d=Rc*2;cs.forEach(function(c){c.style.width=(fw+.8)+'px';c.style.left=(-fw/2-.4)+'px';var ci=c.firstChild;ci.style.width=w+'px';ci.style.marginLeft=(-c._j*fw)+'px'});nrs.forEach(function(r){r.style.width=r.style.height=d+'px';r.style.setProperty('--y',(r._sg*h/2)+'px')})}
+      else if(opt.drum){R=Math.max(w*.95,(w/2)/Math.tan(Math.PI/n)*1.14);var dc=R*1.56;nrs.forEach(function(r){r.style.width=r.style.height=dc+'px';r.style.setProperty('--y',(r._sg*(h/2+16))+'px')})}
       else{R=Math.max(w*1.3,(w/2)/Math.tan(Math.PI/n)*1.12);var d2=R*2;orb.style.width=d2+'px';orb.style.height=d2+'px'}}
     function draw(){
       for(var i=0;i<n;i++){
         var a=(rot+i*360/n)*Math.PI/180,x=Math.sin(a)*R,z=Math.cos(a)*R,f=(Math.cos(a)+1)/2;
-        var c=cs[i];c.style.transform=opt.neo?'rotateY('+(rot+i*360/n).toFixed(2)+'deg) translateZ('+R.toFixed(1)+'px)':'translate3d('+x.toFixed(1)+'px,0,'+z.toFixed(1)+'px) rotateY('+(Math.sin(a)*-24).toFixed(1)+'deg)';
-        c.style.opacity=(opt.neo?(.3+.7*Math.pow(f,.7)):(.22+.78*f)).toFixed(2);c.style.pointerEvents=f>.55?'auto':'none';c.tabIndex=f>.55?0:-1;
+        var c=cs[i];c.style.transform=(opt.neo||opt.drum)?'rotateY('+(rot+i*360/n).toFixed(2)+'deg) translateZ('+R.toFixed(1)+'px)':'translate3d('+x.toFixed(1)+'px,0,'+z.toFixed(1)+'px) rotateY('+(Math.sin(a)*-24).toFixed(1)+'deg)';
+        c.style.opacity=((opt.neo||opt.drum)?(.3+.7*Math.pow(f,.7)):(.22+.78*f)).toFixed(2);c.style.pointerEvents=f>.55?'auto':'none';c.tabIndex=f>.55?0:-1;
       }
     }
     function tick(t){
@@ -970,13 +1028,13 @@ function mok(x){return !!(x&&(x.id||x.link))}
   var S=(M.slides&&M.slides.length?M.slides:(M.hero||[])).filter(mok),
       pic=function(i){return S.length?msrc(S[i%S.length]):null};
   ring(document.getElementById('ring-dv'),[
-    {k:'01',t:'Quay chụp ngày cưới',s:'Phóng sự, highlight, flycam',img:pic(1),ic:'i-ring',href:'#dich-vu-ds'},
-    {k:'02',t:'Sự kiện',s:'Hội nghị, khai trương, gala',ic:'i-vid',href:'#dich-vu-ds'},
-    {k:'03',t:'Sinh nhật',s:'Thôi nôi, tiệc sinh nhật',ic:'i-cake',href:'#dich-vu-ds'},
-    {k:'04',t:'Event doanh nghiệp',s:'Year-end party, ra mắt sản phẩm',ic:'i-biz',href:'#dich-vu-ds'},
-    {k:'05',t:'Livestream',s:'Đa máy quay, đồ hoạ trực tiếp',ic:'i-live',href:'#dich-vu-ds'},
-    {k:'06',t:'Màn hình LED',s:'Trong nhà và ngoài trời',ic:'i-led',href:'#dich-vu-ds'},
-    {k:'07',t:'Photobooth',s:'In ảnh lấy ngay',ic:'i-print',href:'#dich-vu-ds'}],{neo:true,center:pic(0)});
+    {k:'01 · Cưới',t:'Phóng sự cưới điện ảnh',s:'Ghi trọn cảm xúc thật',img:pic(1),ic:'i-ring',href:'#dich-vu-ds'},
+    {k:'02 · Sự kiện',t:'Sự kiện',s:'Khai mạc, hội nghị, year end party',ic:'i-vid',href:'#dich-vu-ds'},
+    {k:'03 · Gia đình',t:'Sinh nhật',s:'Thôi nôi, tiệc sinh nhật',ic:'i-cake',href:'#dich-vu-ds'},
+    {k:'04 · Doanh nghiệp',t:'TVC doanh nghiệp',s:'Lan tỏa thương hiệu bằng hình ảnh',ic:'i-biz',href:'#dich-vu-ds'},
+    {k:'05 · Trực tiếp',t:'Livestream',s:'Đa máy quay, đồ hoạ trực tiếp',ic:'i-live',href:'#dich-vu-ds'},
+    {k:'06 · Thiết bị',t:'Màn hình LED',s:'Trong nhà và ngoài trời',ic:'i-led',href:'#dich-vu-ds'},
+    {k:'07 · Tiện ích',t:'Photobooth',s:'In ảnh lấy ngay',ic:'i-print',href:'#dich-vu-ds'}],{drum:true});
   var W=[],AL=(M.albums||[]).filter(function(a){return a&&a.cover&&mok(a.cover)}),V=(M.video||[]).filter(function(x){return x&&yid(x.link)});
   for(var i=0;i<Math.max(AL.length,V.length);i++){
     if(AL[i])W.push({k:'Album',t:AL[i].ten,s:(AL[i].anh||[]).length+' ảnh',img:msrc(AL[i].cover),href:'#gal'});
