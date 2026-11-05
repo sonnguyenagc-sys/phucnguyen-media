@@ -621,7 +621,9 @@ footer .wrap{padding-block:28px 40px;display:flex;justify-content:space-between;
   <div style="text-align:center"><span class="eyebrow">Dự án đã thực hiện</span></div>
   <h3>Đồng hành cùng doanh nghiệp và gia đình</h3>
   <p class="sub">Một số chương trình Phúc Nguyễn Media đã quay, chụp và dựng trong năm 2026.</p>
-  <div class="gr">
+  <div class="r3" id="ring-pj" role="region" aria-label="Dự án đã thực hiện" style="margin-top:26px"></div>
+  <div class="r3hint">Kéo hoặc vuốt để xoay</div>
+  <div class="gr" id="du-an-list">
     <div class="g"><h4>Year end party<b>6</b></h4><ul><li>Yeagel<small>08/2026</small></li><li>Techcombank Vùng 10<small>08/2026</small></li><li>Tân Thuận An (tân niên)<small>08/2026</small></li><li>Mai Hương Phát<small>08/2026</small></li><li>Tân Hòa 1<small>07/2026</small></li><li>Cargill, YEP Sắc Màu<small>01/2026</small></li></ul></div>
     <div class="g"><h4>Khai trương<b>5</b></h4><ul><li>Viet Flower<small>08/2026</small></li><li>Vàng bạc Kim Hùng<small>08/2026</small></li><li>Pickleball 39<small>08/2026</small></li><li>Konexa Group<small>07/2026</small></li><li>Shantea<small>03/2026</small></li></ul></div>
     <div class="g"><h4>TVC và phim doanh nghiệp<b>5</b></h4><ul><li>La La Coffee<small>07/2026</small></li><li>THACO Auto<small>07/2026</small></li><li>THACO Auto Đồng Nai<small>07/2026</small></li><li>Highlight Konexa Group<small>07/2026</small></li><li>Highlight Wanek<small>05/2026</small></li></ul></div>
@@ -1037,6 +1039,13 @@ function mok(x){return !!(x&&(x.id||x.link))}
     {k:'05 · Trực tiếp',t:'Livestream',s:'Đa máy quay, đồ hoạ trực tiếp',ic:'i-live',href:'#dich-vu-ds'},
     {k:'06 · Thiết bị',t:'Màn hình LED',s:'Trong nhà và ngoài trời',ic:'i-led',href:'#dich-vu-ds'},
     {k:'07 · Tiện ích',t:'Photobooth',s:'In ảnh lấy ngay',ic:'i-print',href:'#dich-vu-ds'}];ring(document.getElementById('ring-hero'),SV,{drum:true});
+  ring(document.getElementById('ring-pj'),[
+    {k:'6 dự án',t:'Year end party',s:'Yeagel, Techcombank, Mai Hương Phát',ic:'i-biz',href:'#du-an-list'},
+    {k:'5 dự án',t:'Khai trương',s:'Viet Flower, Kim Hùng, Pickleball 39',ic:'i-cam',href:'#du-an-list'},
+    {k:'5 dự án',t:'TVC doanh nghiệp',s:'La La Coffee, THACO Auto, Wanek',ic:'i-vid',href:'#du-an-list'},
+    {k:'7 dự án',t:'Giải đấu và recap',s:'Techcombank Cup, Hawa Expo, Ansell Race',ic:'i-led',href:'#du-an-list'},
+    {k:'2 dự án',t:'Chương trình cộng đồng',s:'UBND xã Đại Phước, GX Thánh Tâm',ic:'i-live',href:'#du-an-list'},
+    {k:'4+ dự án',t:'Cưới và gia đình',s:'Phóng sự cưới, pre-wedding, LED 100 bàn',img:pic(2),ic:'i-ring',href:'#du-an-list'}],{drum:true});
   var W=[],AL=(M.albums||[]).filter(function(a){return a&&a.cover&&mok(a.cover)}),V=(M.video||[]).filter(function(x){return x&&yid(x.link)});
   for(var i=0;i<Math.max(AL.length,V.length);i++){
     if(AL[i])W.push({k:'Album',t:AL[i].ten,s:(AL[i].anh||[]).length+' ảnh',img:msrc(AL[i].cover),href:'#gal'});
