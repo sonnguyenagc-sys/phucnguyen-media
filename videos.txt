@@ -1,0 +1,11 @@
+# DANH SÁCH VIDEO - mỗi dòng một video, dạng:  link YouTube | tên video
+# Muốn thêm video: dán thêm 1 dòng ở cuối rồi bấm Commit. Muốn xoá: xoá dòng đó.
+# Dòng bắt đầu bằng # là ghi chú, không hiện lên trang.
+https://youtu.be/jGhljU4aGA8 | Lễ đám hỏi Phú Thức & Diễm My
+https://youtu.be/WOVceuOkT_s | Wedding Film Huy Hoàng & Như Ý
+https://youtu.be/DbkzLZp2RTQ | Wedding Film Phú Lộc & Cẩm Dung
+https://youtu.be/Cwghh_BufkI | Wedding Film Tú Uyên & Đức Trung
+https://youtu.be/CZT3T6deG1E | Wedding Film Ngọc Anh & Thành Đạt
+https://youtu.be/vI7OXwL4uPk | Wedding Film Hải Yến & Zhi Fu
+https://youtu.be/-ryNFmT2U2s | Wedding Film Thị Bắc & Thanh Hải
+https://youtu.be/VEk6MDXJupo | Wedding Film Phương Thanh & Ngọc Cường
