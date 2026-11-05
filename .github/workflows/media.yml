@@ -1,0 +1,34 @@
+name: Cap nhat anh va video
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'albums/**'
+      - 'hero/**'
+      - 'videos.txt'
+      - 'tools/**'
+      - '.github/workflows/media.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tao media.js
+        run: python3 tools/build_media.py
+      - name: Luu thay doi
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Khong co thay doi"
+          else
+            git commit -m "Tu dong cap nhat anh va video"
+            git push
+          fi
