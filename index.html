@@ -361,6 +361,11 @@ footer .wrap{padding-block:28px 40px;display:flex;justify-content:space-between;
   section .wrap{padding-block:64px}
 }
 @media (prefers-reduced-motion:reduce){.dot{animation:none}.card{transition:none}html{scroll-behavior:auto}}
+/* HERO RING */
+.hero #ringbox{min-width:0}
+.hero .r3{margin:0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent),linear-gradient(180deg,transparent,#000 6%,#000 94%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent),linear-gradient(180deg,transparent,#000 6%,#000 94%,transparent);mask-composite:intersect}
+.r3sec .prj{margin-top:0}
+@media (min-width:1000px){.hero .r3.drum{--w:170px;--h:270px}}
 /* DU AN */
 .prj{margin:56px auto 0;max-width:1100px}
 .prj h3{font-size:clamp(24px,3.4vw,38px);font-weight:800;line-height:1.1;text-align:center;margin:10px 0 0}
@@ -460,7 +465,7 @@ footer .wrap{padding-block:28px 40px;display:flex;justify-content:space-between;
 <header class="nav pad"><div class="wrap">
   <a class="logo" href="#"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="8" fill="#FF7A1A"/><circle cx="15" cy="15" r="7" fill="none" stroke="#fff" stroke-width="2.4"/><circle cx="15" cy="15" r="2.4" fill="#fff"/></svg>Phúc Nguyễn Media</a>
   <ul class="menu">
-    <li><a href="#dich-vu">Dịch vụ</a></li>
+    <li><a href="#dich-vu-ds">Dịch vụ</a></li>
     <li><a href="#du-an">Dự án</a></li>
     <li><a href="#tac-pham">Tác phẩm</a></li>
     <li><a href="#quy-trinh">Quy trình</a></li>
@@ -583,7 +588,8 @@ footer .wrap{padding-block:28px 40px;display:flex;justify-content:space-between;
       <div><b>98<span>%</span></b><small>Khách hàng hài lòng</small></div>
     </div>
   </div>
-  <div class="visual wheelbox" id="wheel" aria-label="Vòng xoay dịch vụ">
+  <div class="visual" id="ringbox"><div class="r3" id="ring-hero" role="region" aria-label="Các dịch vụ"></div><div class="r3hint">Kéo hoặc vuốt để xoay</div></div>
+  <div class="visual wheelbox" id="wheel" aria-label="Vòng xoay dịch vụ" style="display:none">
     <div class="wlabel" aria-live="polite"><span id="wnum">01 / 07</span><b id="wname">Quay chụp ngày cưới</b></div>
     <div class="rot" id="rot">
       <div class="disc"></div>
@@ -610,11 +616,7 @@ footer .wrap{padding-block:28px 40px;display:flex;justify-content:space-between;
   <li><span class="ic"><svg><use href="#i-print"/></svg></span>Photobooth<br>in ảnh lấy ngay</li>
 </ul></div>
 
-<section class="dark pad r3sec" id="dich-vu"><div class="wrap">
-  <div class="r3hd"><span class="eyebrow">Chương trình</span><h2>Bạn tổ chức, <em>chúng tôi ghi hình</em></h2><p>Visual Storyteller tại Biên Hòa. Phục vụ Biên Hòa, Long Khánh, Trảng Bom, Long Thành.</p></div>
-  <div class="r3" id="ring-dv" role="region" aria-label="Các dịch vụ"></div>
-  <div class="r3hint">Kéo hoặc vuốt để xoay</div>
-  <div class="r3cta"><a class="btn" href="#lien-he">Nhận báo giá</a><a class="btn ghost" href="#dich-vu-ds">Xem chi tiết dịch vụ</a></div>
+<section class="dark pad r3sec" id="du-an-sec"><div class="wrap">
 <div class="prj" id="du-an">
   <div style="text-align:center"><span class="eyebrow">Dự án đã thực hiện</span></div>
   <h3>Đồng hành cùng doanh nghiệp và gia đình</h3>
@@ -1027,14 +1029,14 @@ function mok(x){return !!(x&&(x.id||x.link))}
   }
   var S=(M.slides&&M.slides.length?M.slides:(M.hero||[])).filter(mok),
       pic=function(i){return S.length?msrc(S[i%S.length]):null};
-  ring(document.getElementById('ring-dv'),[
+  var SV=[
     {k:'01 · Cưới',t:'Phóng sự cưới điện ảnh',s:'Ghi trọn cảm xúc thật',img:pic(1),ic:'i-ring',href:'#dich-vu-ds'},
     {k:'02 · Sự kiện',t:'Sự kiện',s:'Khai mạc, hội nghị, year end party',ic:'i-vid',href:'#dich-vu-ds'},
     {k:'03 · Gia đình',t:'Sinh nhật',s:'Thôi nôi, tiệc sinh nhật',ic:'i-cake',href:'#dich-vu-ds'},
     {k:'04 · Doanh nghiệp',t:'TVC doanh nghiệp',s:'Lan tỏa thương hiệu bằng hình ảnh',ic:'i-biz',href:'#dich-vu-ds'},
     {k:'05 · Trực tiếp',t:'Livestream',s:'Đa máy quay, đồ hoạ trực tiếp',ic:'i-live',href:'#dich-vu-ds'},
     {k:'06 · Thiết bị',t:'Màn hình LED',s:'Trong nhà và ngoài trời',ic:'i-led',href:'#dich-vu-ds'},
-    {k:'07 · Tiện ích',t:'Photobooth',s:'In ảnh lấy ngay',ic:'i-print',href:'#dich-vu-ds'}],{drum:true});
+    {k:'07 · Tiện ích',t:'Photobooth',s:'In ảnh lấy ngay',ic:'i-print',href:'#dich-vu-ds'}];ring(document.getElementById('ring-hero'),SV,{drum:true});
   var W=[],AL=(M.albums||[]).filter(function(a){return a&&a.cover&&mok(a.cover)}),V=(M.video||[]).filter(function(x){return x&&yid(x.link)});
   for(var i=0;i<Math.max(AL.length,V.length);i++){
     if(AL[i])W.push({k:'Album',t:AL[i].ten,s:(AL[i].anh||[]).length+' ảnh',img:msrc(AL[i].cover),href:'#gal'});
