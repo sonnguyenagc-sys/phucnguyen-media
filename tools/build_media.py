@@ -2,7 +2,7 @@
 """Tự động tạo media.js từ thư mục ảnh và videos.txt (chạy bởi GitHub Actions)."""
 import os, re, shutil, json, urllib.parse
 
-IMG = ('.jpg', '.jpeg', '.png', '.webp', '.gif')
+IMG = ('.jpg', '.jpeg', '.png', '.webp', '.gif', '.svg')
 
 def nat(s):
     return [int(x) if x.isdigit() else x.lower() for x in re.split(r'(\d+)', s)]
