@@ -179,6 +179,7 @@ a{color:inherit}
 .lux .sc .s{display:none}
 #ring-pj .nr{display:none}#ring-pj .cap,#ring-pj .vb,#ring-pj .orb{display:none}#ring-pj::before{display:none}#ring-pj .c,#ring-pj .c:nth-child(n){border:2px solid transparent;border-radius:12px;background:linear-gradient(170deg,#18181c,#09090b) padding-box,conic-gradient(from var(--a),rgba(255,154,61,.5) 0 62%,#FFB46B 80%,#fff 90%,rgba(255,154,61,.5)) border-box;animation:scr 3.4s linear infinite;box-shadow:0 0 26px rgba(255,122,26,.5)}#ring-pj .c:nth-child(2n){animation-delay:-1.1s}#ring-pj .c:nth-child(3n){animation-delay:-2.2s}
 .prj .g{position:relative;border:2px solid transparent;border-radius:14px;background:linear-gradient(170deg,#17171b,#0a0a0c) padding-box,conic-gradient(from var(--a),rgba(255,154,61,.4) 0 62%,#FFB46B 80%,#fff 90%,rgba(255,154,61,.4)) border-box;animation:scr 3.6s linear infinite;box-shadow:0 0 24px rgba(255,122,26,.35)}.prj .g:nth-child(2n){animation-delay:-1.2s}.prj .g:nth-child(3n){animation-delay:-2.4s}
+.prj .sub{display:none}.prj .pt{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr));gap:14px;margin-top:30px}.prj .pj{display:flex;align-items:center;justify-content:center;text-align:center;min-height:88px;padding:14px 16px;font-weight:700;font-size:15px;line-height:1.3;color:#fff;border:2px solid transparent;border-radius:12px;background:linear-gradient(170deg,#17171b,#0a0a0c) padding-box,conic-gradient(from var(--a),rgba(255,154,61,.4) 0 62%,#FFB46B 80%,#fff 90%,rgba(255,154,61,.4)) border-box;animation:scr 3.6s linear infinite;box-shadow:0 0 18px rgba(255,122,26,.3)}.prj .pj:nth-child(2n){animation-delay:-1.2s}.prj .pj:nth-child(3n){animation-delay:-2.4s}.prj .pj:nth-child(5n){animation-delay:-.6s}
 @media (prefers-reduced-motion:reduce){.lux .sl.on img{animation:none}.lux .rec b{animation:none}}
 /* HERO REEL */
 .sky{position:relative;overflow:hidden;background:#09090A;isolation:isolate;padding-bottom:clamp(70px,12vw,150px)}
@@ -658,13 +659,36 @@ footer .wrap{padding-block:28px 40px;display:flex;justify-content:space-between;
   <h3>Đồng hành cùng doanh nghiệp và gia đình</h3>
   <p class="sub">Một số chương trình Phúc Nguyễn Media đã quay, chụp và dựng trong năm 2026.</p>
   
-  <div class="gr" id="du-an-list">
-    <div class="g"><h4>Year end party<b>6</b></h4><ul><li>Yeagel<small>08/2026</small></li><li>Techcombank Vùng 10<small>08/2026</small></li><li>Tân Thuận An (tân niên)<small>08/2026</small></li><li>Mai Hương Phát<small>08/2026</small></li><li>Tân Hòa 1<small>07/2026</small></li><li>Cargill, YEP Sắc Màu<small>01/2026</small></li></ul></div>
-    <div class="g"><h4>Khai trương<b>5</b></h4><ul><li>Viet Flower<small>08/2026</small></li><li>Vàng bạc Kim Hùng<small>08/2026</small></li><li>Pickleball 39<small>08/2026</small></li><li>Konexa Group<small>07/2026</small></li><li>Shantea<small>03/2026</small></li></ul></div>
-    <div class="g"><h4>TVC và phim doanh nghiệp<b>5</b></h4><ul><li>La La Coffee<small>07/2026</small></li><li>THACO Auto<small>07/2026</small></li><li>THACO Auto Đồng Nai<small>07/2026</small></li><li>Highlight Konexa Group<small>07/2026</small></li><li>Highlight Wanek<small>05/2026</small></li></ul></div>
-    <div class="g"><h4>Giải đấu và recap<b>7</b></h4><ul><li>Pickleball Techcombank Vùng 10<small>08/2026</small></li><li>Techcombank Management Cup<small>08/2026</small></li><li>Techcombank Private Client Cup<small>08/2026</small></li><li>Hawa Expo 2026<small>07/2026</small></li><li>Ansell Race 2026<small>07/2026</small></li><li>PMU Universe Awards 2026<small>05/2026</small></li><li>Đồng Nai Ford Champion<small>05/2026</small></li></ul></div>
-    <div class="g"><h4>Chương trình cộng đồng<b>2</b></h4><ul><li>Chương trình nghệ thuật UBND xã Đại Phước<small>08/2026</small></li><li>Ca nguyện Mùa Chay, GX Thánh Tâm<small>03/2026</small></li></ul></div>
-    <div class="g"><h4>Cưới và gia đình<b>4+</b></h4><ul><li>Phóng sự cưới điện ảnh</li><li>Pre-wedding film</li><li>Livestream màn LED tiệc cưới 100 bàn<small>03/2026</small></li><li>Photobooth 360 cho YEP và đám cưới<small>01/2026</small></li></ul></div>
+  <div class="pt" id="du-an-list">
+    <div class="pj">Yeagel</div>
+    <div class="pj">Techcombank Vùng 10</div>
+    <div class="pj">Tân Thuận An (tân niên)</div>
+    <div class="pj">Mai Hương Phát</div>
+    <div class="pj">Tân Hòa 1</div>
+    <div class="pj">Cargill, YEP Sắc Màu</div>
+    <div class="pj">Viet Flower</div>
+    <div class="pj">Vàng bạc Kim Hùng</div>
+    <div class="pj">Pickleball 39</div>
+    <div class="pj">Konexa Group</div>
+    <div class="pj">Shantea</div>
+    <div class="pj">La La Coffee</div>
+    <div class="pj">THACO Auto</div>
+    <div class="pj">THACO Auto Đồng Nai</div>
+    <div class="pj">Highlight Konexa Group</div>
+    <div class="pj">Highlight Wanek</div>
+    <div class="pj">Pickleball Techcombank Vùng 10</div>
+    <div class="pj">Techcombank Management Cup</div>
+    <div class="pj">Techcombank Private Client Cup</div>
+    <div class="pj">Hawa Expo 2026</div>
+    <div class="pj">Ansell Race 2026</div>
+    <div class="pj">PMU Universe Awards 2026</div>
+    <div class="pj">Đồng Nai Ford Champion</div>
+    <div class="pj">Chương trình nghệ thuật UBND xã Đại Phước</div>
+    <div class="pj">Ca nguyện Mùa Chay, GX Thánh Tâm</div>
+    <div class="pj">Phóng sự cưới điện ảnh</div>
+    <div class="pj">Pre-wedding film</div>
+    <div class="pj">Livestream màn LED tiệc cưới 100 bàn</div>
+    <div class="pj">Photobooth 360 cho YEP và đám cưới</div>
   </div>
 </div>
 
