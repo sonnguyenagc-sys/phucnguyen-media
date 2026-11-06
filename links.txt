@@ -1,0 +1,31 @@
+# Link ảnh cho từng dự án. Mỗi dòng: Tên dự án | link album (NAS, Drive...)
+# Dự án nào dán link thì khách bấm vào ô sẽ mở album. Để trống thì ô không bấm được.
+Yeagel | 
+Techcombank Vùng 10 | 
+Tân Thuận An (tân niên) | 
+Mai Hương Phát | 
+Tân Hòa 1 | 
+Cargill, YEP Sắc Màu | 
+Viet Flower | 
+Vàng bạc Kim Hùng | 
+Pickleball 39 | 
+Konexa Group | https://gofile.me/79Prb/PfsI9ZG8Q
+Shantea | 
+La La Coffee | 
+THACO Auto | 
+THACO Auto Đồng Nai | 
+Highlight Konexa Group | 
+Highlight Wanek | 
+Pickleball Techcombank Vùng 10 | 
+Techcombank Management Cup | 
+Techcombank Private Client Cup | 
+Hawa Expo 2026 | 
+Ansell Race 2026 | 
+PMU Universe Awards 2026 | 
+Đồng Nai Ford Champion | 
+Chương trình nghệ thuật UBND xã Đại Phước | 
+Ca nguyện Mùa Chay, GX Thánh Tâm | 
+Phóng sự cưới điện ảnh | 
+Pre-wedding film | 
+Livestream màn LED tiệc cưới 100 bàn | 
+Photobooth 360 cho YEP và đám cưới | 
