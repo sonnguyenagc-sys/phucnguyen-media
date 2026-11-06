@@ -864,7 +864,7 @@ function mok(x){return !!(x&&(x.id||x.link))}
   addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)close()});
   function renderA(){gal.innerHTML='';var list=A;
     if(AL.length){
-      if(cur<0){AL.forEach(function(al,i){var ph=(al.anh||[]).filter(mok),cv=mok(al.cover)?al.cover:ph[0],b=el('button','gi');b.appendChild(img(msrc(cv),al.ten));b.appendChild(cap((al.ten||'Album')+' · '+ph.length+' ảnh'));b.addEventListener('click',function(){cur=i;renderA();gal.scrollIntoView({block:'start'})});gal.appendChild(b)});return}
+      if(cur<0){AL.forEach(function(al,i){var ph=(al.anh||[]).filter(mok),cv=mok(al.cover)?al.cover:ph[0],b=el('button','gi');b.appendChild(img(msrc(cv),al.ten));b.appendChild(cap(al.link?(al.ten||'Album')+' · Xem album →':(al.ten||'Album')+' · '+ph.length+' ảnh'));b.addEventListener('click',function(){if(al.link){window.open(al.link,'_blank','noopener');return}cur=i;renderA();gal.scrollIntoView({block:'start'})});gal.appendChild(b)});return}
       var bk=el('button','tab');bk.textContent='← Tất cả album';bk.style.cssText='grid-column:1/-1;justify-self:start';bk.addEventListener('click',function(){cur=-1;renderA()});gal.appendChild(bk);list=(AL[cur].anh||[]).filter(mok)}
     list.forEach(function(x){var s=msrc(x),b=el('button','gi');b.appendChild(img(s,x.ten));if(x.ten)b.appendChild(cap(x.ten));
     b.addEventListener('click',function(){open({content:img(s,x.ten),text:x.ten})});gal.appendChild(b)})}
@@ -1124,7 +1124,7 @@ function mok(x){return !!(x&&(x.id||x.link))}
   })();
   var W=[],AL=(M.albums||[]).filter(function(a){return a&&a.cover&&mok(a.cover)}),V=(M.video||[]).filter(function(x){return x&&yid(x.link)});
   for(var i=0;i<Math.max(AL.length,V.length);i++){
-    if(AL[i])W.push({k:'Album',t:AL[i].ten,s:(AL[i].anh||[]).length+' ảnh',img:msrc(AL[i].cover),href:'#gal'});
+    if(AL[i])W.push({k:'Album',t:AL[i].ten,s:AL[i].link?'Xem album':(AL[i].anh||[]).length+' ảnh',img:msrc(AL[i].cover),href:'#gal'});
     if(V[i])W.push({k:'Phim',t:V[i].ten||'Wedding film',s:'Xem phim',img:'https://i.ytimg.com/vi/'+yid(V[i].link)+'/hqdefault.jpg',play:1,href:'#gal'});
   }
   ring(document.getElementById('ring-tp'),W);
