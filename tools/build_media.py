@@ -71,7 +71,19 @@ if os.path.exists('videos.txt'):
         link, _, ten = line.partition('|')
         video.append({'link': link.strip(), 'ten': ten.strip()})
 
-M = {'slides': slides, 'hero': [], 'albums': albums, 'anh': [], 'video': video}
+# --- Link ảnh cho từng dự án: links.txt, mỗi dòng "Tên dự án | link" ---
+plinks = {}
+if os.path.exists('links.txt'):
+    for line in open('links.txt', encoding='utf-8'):
+        line = line.strip()
+        if not line or line.startswith('#'):
+            continue
+        name, _, url = line.partition('|')
+        url = url.strip()
+        if url.startswith('http'):
+            plinks[name.strip()] = url
+
+M = {'slides': slides, 'hero': [], 'albums': albums, 'anh': [], 'video': video, 'plinks': plinks}
 with open('media.js', 'w', encoding='utf-8') as fh:
     fh.write('window.MEDIA=' + json.dumps(M, ensure_ascii=True) + ';\n')
 print('albums', len(albums), 'slides', len(slides), 'video', len(video))
