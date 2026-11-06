@@ -45,7 +45,16 @@ if os.path.isdir('albums'):
             continue
         title = re.sub(r'^\s*\d+\s*[.\-_)]+\s*', '', name) or name
         items = [{'link': q('albums/%s/%s' % (name, f)), 'ten': ''} for f in fs]
-        albums.append({'ten': title, 'cover': items[0], 'anh': items})
+        # Ảnh bìa: file bắt đầu bằng 'bia' hoặc 'cover', nếu không có thì lấy ảnh đầu tiên
+        cf = next((f for f in fs if re.match(r'^(bia|cover)', f, re.I)), fs[0])
+        a = {'ten': title, 'cover': {'link': q('albums/%s/%s' % (name, cf)), 'ten': ''}, 'anh': items}
+        # Link NAS: file link.txt trong thư mục album (dòng đầu là link)
+        lf = os.path.join(d, 'link.txt')
+        if os.path.exists(lf):
+            u = open(lf, encoding='utf-8').read().strip().split('\n')[0].strip()
+            if u.startswith('http'):
+                a['link'] = u
+        albums.append(a)
 
 # --- Ảnh đầu trang: thư mục hero/ ---
 slides = []
